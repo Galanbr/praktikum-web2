@@ -13,7 +13,6 @@ Mendefinisikan sebuah class bernama Mahasiswa dengan atribut/properti publik nam
 ```
 <?php
 class Mahasiswa {
-    // Deklarasi properti publik
     public $nama;
     public $nim;
     public $jurusan;
@@ -79,7 +78,6 @@ Setter untuk mengubah nilai properti _$nama_ yang diambil getter
 ```
 Getter untuk mengambil nilai properti _$nim_ yang bersifat private
 ```
-    // Getter untuk properti nim
     public function getNim() {
         return $this->nim;
     }
@@ -92,9 +90,7 @@ Setter untuk mengubah nilai properti _$nim_ yang diambil getter
 ```
 Getter untuk mengambil nilai properti _$jurusan_ yang bersifat private
 ```
-    // Getter untuk properti jurusan
     public function getJurusan() {
-        // Mengembalikan nilai properti jurusan
         return $this->jurusan;
     }
 ```
