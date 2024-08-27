@@ -16,7 +16,8 @@ class Dosen extends Pengguna {
 
     // Metode aksesFitur() mengoverride metode dari kelas induk
     public function aksesFitur() {
-        // Implementasi spesifik untuk Dosen bisa ditambahkan di sini
+        // Implementasi spesifik untuk Dosen
+        return "mengakses fitur Penilaian.";
     }
 }
 
@@ -28,7 +29,8 @@ class Mahasiswa extends Pengguna {
 
     // Metode aksesFitur() mengoverride metode dari kelas induk
     public function aksesFitur() {
-        // Implementasi spesifik untuk Mahasiswa bisa ditambahkan di sini
+        // Implementasi spesifik untuk Mahasiswa
+        return "mengakses fitur Jadwal.";
     }
 }
 
@@ -39,11 +41,10 @@ $dosen = new Dosen();
 $mahasiswa = new Mahasiswa();
 
 // Memanggil metode aksesFitur() dari objek Dosen
-// Karena aksesFitur() kosong, hanya string "Dosen mengakses fitur administrasi." yang ditampilkan
-echo "Dosen mengakses fitur administrasi." . $dosen->aksesFitur();
+echo "Dosen " . $dosen->aksesFitur();
 echo "<br>";
+
 // Memanggil metode aksesFitur() dari objek Mahasiswa
-// Karena aksesFitur() kosong, hanya string "Mahasiswa mengakses fitur pembelajaran." yang ditampilkan
-echo "Mahasiswa mengakses fitur pembelajaran." . $mahasiswa->aksesFitur();
+echo "Mahasiswa " . $mahasiswa->aksesFitur();
 
 ?>
