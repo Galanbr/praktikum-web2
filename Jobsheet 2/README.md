@@ -46,6 +46,8 @@ echo $mahasiswa->tampilkanData();
 ```
 outputnya sebagai berikut :
 
+![classobject2](https://github.com/user-attachments/assets/2361e281-f4c1-495f-ab4d-d1e15a4a15b0)
+
 ### 2. Encapsulation
 Mendefinisikan sebuah class bernama Mahasiswa dengan atribut/properti private nama, kelas dan jurusan
 ```
@@ -138,6 +140,8 @@ $mahasiswa1->tampilkanData();
 
 Outputnya sebagai berikut :
 
+![encapsulation](https://github.com/user-attachments/assets/14f4aab8-c9c3-431b-9821-873f87812d67)
+
 
 ### 3. Inheritance
 
@@ -193,94 +197,90 @@ echo "Mata Kuliah : " . $dosen->getmatkul();
 ?>
 ```
  Outputnya sebagai berikut :
+
+![inheritance](https://github.com/user-attachments/assets/503340c2-443b-4bd7-8d36-006df4d3bcc9)
  
 ### 4. Polymorphism
+Mendefinisikan class Pengguna 
 ```
 <?php
-// Kelas Pengguna sebagai kelas induk
 class Pengguna {
-    // Metode aksesFitur() didefinisikan di kelas induk, tetapi tidak ada implementasi
     public function aksesFitur() {
-        // Implementasi dapat diisi oleh kelas turunan
     }
 }
 ```
+Mendefinisikan class Dosen yang merupakan turunan dari Class Pengguna
 ```
-// Kelas Dosen yang merupakan turunan dari kelas Pengguna
 class Dosen extends Pengguna {
-```
-```
-    // Konstruktor kelas Dosen, saat ini tidak melakukan apa-apa
     public function __construct() {}
 ```
+
 ```
-    // Metode aksesFitur() mengoverride metode dari kelas induk
     public function aksesFitur() {
-        // Implementasi spesifik untuk Dosen bisa ditambahkan di sini
+        return "mengakses fitur Penilaian.";
     }
 }
-
-// Kelas Mahasiswa yang juga merupakan turunan dari kelas Pengguna
+```
+Mendefinisikan class Mahasiswa yang juga merupakan turunan dari class Pengguna
+```
 class Mahasiswa extends Pengguna {
-
-    // Konstruktor kelas Mahasiswa, saat ini tidak melakukan apa-apa
     public function __construct() {}
 
-    // Metode aksesFitur() mengoverride metode dari kelas induk
     public function aksesFitur() {
-        // Implementasi spesifik untuk Mahasiswa bisa ditambahkan di sini
+        return "mengakses fitur Jadwal.";
     }
 }
-
-// Membuat objek Dosen
+```
+Membuat objek Dosen dan Mahasiswa
+```
 $dosen = new Dosen();
-
-// Membuat objek Mahasiswa
 $mahasiswa = new Mahasiswa();
-
-// Memanggil metode aksesFitur() dari objek Dosen
-// Karena aksesFitur() kosong, hanya string "Dosen mengakses fitur administrasi." yang ditampilkan
-echo "Dosen mengakses fitur Penilaian." . $dosen->aksesFitur();
+```
+Memanggil metode _aksesFitur()_ dari objek Dosen
+```
+echo "Dosen " . $dosen->aksesFitur();
 echo "<br>";
-// Memanggil metode aksesFitur() dari objek Mahasiswa
-// Karena aksesFitur() kosong, hanya string "Mahasiswa mengakses fitur pembelajaran." yang ditampilkan
-echo "Mahasiswa mengakses fitur Jadwal." . $mahasiswa->aksesFitur();
+```
+Memanggil metode _aksesFitur()_ dari objek Mahasiswa
+```
+echo "Mahasiswa " . $mahasiswa->aksesFitur();
 ?>
 ```
 outputnya sebagai berikut :
-### 5. Abstraction
 
+![polymorphism](https://github.com/user-attachments/assets/d5eab03e-7ebc-4ba0-8f77-32a89ca0551d)
+
+
+### 5. Abstraction
+Mendefinisikan class Abstract Pengguna
 ```
 <?php
-// Kelas abstrak Pengguna
 abstract class Pengguna {
-    // Metode abstrak
     abstract public function aksesFitur();
 }
 ```
+Class Mahasiswa yang mengimplementasikan Pengguna
 ```
-// Kelas Mahasiswa yang mengimplementasikan Pengguna
 class Mahasiswa extends Pengguna {
-    // Implementasi metode aksesFitur untuk Mahasiswa
     public function aksesFitur() {
         return "Mahasiswa mengakses fitur Jadwal.";
     }
 }
 ```
+Class Dosen yang mengimplementasikan Pengguna
 ```
-// Kelas Dosen yang mengimplementasikan Pengguna
 class Dosen extends Pengguna {
-    // Implementasi metode aksesFitur untuk Dosen
     public function aksesFitur() {
         return "Dosen mengakses fitur Penilaian.";
     }
 }
 ```
+Membuat objek Mahasiswa dan Dosen
 ```
-// Demonstrasi penggunaan
 $mahasiswa = new Mahasiswa();
 $dosen = new Dosen();
 ```
+Memanggil metode _aksesFitur()_ dari objek mahasiswa dan dosen
 ```
 echo $mahasiswa->aksesFitur(); 
 echo "<br>";
@@ -288,3 +288,6 @@ echo $dosen->aksesFitur();
 ?>
 ```
 outputnya sebagai berikut :
+
+![abstraction](https://github.com/user-attachments/assets/bcab0e6d-acc7-4758-a549-64303be1806e)
+
